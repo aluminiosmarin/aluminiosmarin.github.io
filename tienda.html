@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex"><!-- BORRADOR: quitar al publicar -->
+<title>Tienda | Aluminios Marín</title>
+<meta name="description" content="Ventanas panorámicas, corredizas y proyectantes de aluminio en medidas estándar, y kits de sustitución. Pide en línea y confirma por WhatsApp.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  body { background:#f4f6f8; }
+  .no-scroll { overflow:hidden; }
+  @media (prefers-reduced-motion: reduce) { * { transition:none !important; } }
+</style>
+</head>
+
+<body class="font-sans text-ink antialiased selection:bg-champagne selection:text-ink">
+
+<!-- HEADER (la franja de borrador se quita al publicar) -->
+<header class="fixed inset-x-0 top-0 z-50 bg-ink/90 backdrop-blur-md border-b border-white/10">
+  <div data-draft class="bg-champagne text-ink text-[11px] sm:text-xs font-semibold text-center py-1 px-3">BORRADOR · medidas, precios y colores del kit son de ejemplo</div>
+  <div class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between gap-3">
+    <a href="index.html" class="flex items-center gap-3">
+      <span class="w-9 h-9 rounded-md border border-champagne/60 text-champagne grid place-items-center font-serif text-lg">AM</span>
+      <span class="hidden sm:inline text-white font-semibold tracking-wide text-sm">ALUMINIOS MARÍN</span>
+    </a>
+    <nav class="flex items-center gap-5 text-sm text-white/70">
+      <a href="index.html" class="hover:text-white">Inicio</a>
+      <a href="index.html#contacto" class="hover:text-white">A medida</a>
+    </nav>
+    <button id="open-cart" type="button" class="relative bg-champagne text-ink text-sm font-semibold pl-4 pr-3 py-2 rounded-md hover:bg-white transition flex items-center gap-2">
+      Carrito
+      <span id="cart-count" class="min-w-[1.5rem] h-6 px-1.5 rounded-full bg-ink text-champagne text-xs grid place-items-center">0</span>
+    </button>
+  </div>
+</header>
+
+<main class="pt-[5.75rem]">
+
+<!-- INTRO -->
+<section class="bg-ink text-white py-14 sm:py-20">
+  <div class="max-w-6xl mx-auto px-5">
+    <p class="text-champagne text-xs tracking-[.25em] uppercase mb-5">Tienda · medidas estándar</p>
+    <h1 class="font-serif text-3xl sm:text-5xl leading-tight max-w-3xl mb-5">Ventanas y kits de aluminio, listos para pedir</h1>
+    <p class="text-white/70 max-w-2xl mb-8">Elige medida, color y vidrio, arma tu pedido y envíalo por WhatsApp. Los dueños te confirman disponibilidad, pago y fecha.</p>
+    <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/80">
+      <span>Pago: Pago Móvil · PayPal · Zelle</span>
+      <a href="index.html#contacto" class="text-champagne underline">¿Tu medida no está en la lista? Cotiza a medida</a>
+    </div>
+  </div>
+</section>
+
+<!-- VENTANAS -->
+<section id="ventanas" class="py-16 sm:py-20">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="mb-10 max-w-3xl">
+      <p class="text-xs tracking-[.25em] uppercase text-champagne mb-3">Ventanas</p>
+      <h2 class="font-serif text-3xl sm:text-4xl leading-tight mb-5">Ventanas de aluminio y vidrio</h2>
+      <ul class="flex flex-wrap gap-2 text-xs font-semibold">
+        <li class="px-3 py-1.5 rounded-full bg-ink text-white">Entrega personal en Caracas</li>
+        <li class="px-3 py-1.5 rounded-full bg-ink text-white">Envío incluido</li>
+        <li class="px-3 py-1.5 rounded-full bg-white border border-slate-300">Instalación opcional, con recargo a acordar</li>
+      </ul>
+    </div>
+    <div id="grid-ventanas" class="grid md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+  </div>
+</section>
+
+<!-- KITS -->
+<section id="kits" class="py-16 sm:py-20 bg-white border-y border-slate-200">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="mb-10 max-w-3xl">
+      <p class="text-xs tracking-[.25em] uppercase text-champagne mb-3">Kits de sustitución</p>
+      <h2 class="font-serif text-3xl sm:text-4xl leading-tight mb-3">Cambia el aluminio de tu ventana panorámica</h2>
+      <p class="text-slate-600 text-sm mb-5">Para cuando el vidrio está bien, pero el aluminio está dañado o rayado.</p>
+      <ul class="flex flex-wrap gap-2 text-xs font-semibold">
+        <li class="px-3 py-1.5 rounded-full bg-ink text-white">Envío a toda Venezuela por Domesa</li>
+        <li class="px-3 py-1.5 rounded-full bg-champagne text-ink">No incluye vidrio</li>
+      </ul>
+    </div>
+    <div class="grid lg:grid-cols-3 gap-5">
+      <div id="grid-kits" class="contents"></div>
+      <div class="lg:col-span-2 rounded-2xl bg-mist border border-slate-200 p-6 sm:p-8">
+        <h3 class="font-serif text-xl mb-4">¿Qué trae el kit?</h3>
+        <ul class="grid sm:grid-cols-2 gap-x-6 gap-y-2 text-sm text-slate-700 mb-6">
+          <li class="flex gap-2"><span class="text-champagne">—</span> Aluminios necesarios para la ventana</li>
+          <li class="flex gap-2"><span class="text-champagne">—</span> Viniles</li>
+          <li class="flex gap-2"><span class="text-champagne">—</span> Gomas</li>
+          <li class="flex gap-2"><span class="text-champagne">—</span> Ruedas de sustitución</li>
+        </ul>
+        <p class="text-sm font-semibold mb-1">Los vidrios no están incluidos.</p>
+        <p class="text-sm text-slate-600 mb-6">Se reutilizan los de tu ventana actual.</p>
+        <div class="rounded-xl border border-dashed border-slate-300 p-4 text-sm text-slate-500">
+          <strong class="block text-slate-700 mb-1">¿Cómo sé qué medida pedir?</strong>
+          Aquí irá una guía corta para medir tu ventana (pendiente de validar con el fabricante).
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="bg-ink text-white/50 text-xs py-8">
+  <div class="max-w-6xl mx-auto px-5 flex flex-col sm:flex-row justify-between gap-3">
+    <span>© <span id="year"></span> Aluminios Marín. Todos los derechos reservados.</span>
+    <a href="index.html" class="hover:text-white">← Volver al inicio</a>
+  </div>
+</footer>
+
+<!-- CARRITO -->
+<div id="overlay" class="fixed inset-0 z-[55] bg-black/50 hidden"></div>
+<aside id="drawer" role="dialog" aria-modal="true" aria-label="Carrito" aria-hidden="true"
+       class="fixed inset-y-0 right-0 z-[60] w-full max-w-md bg-white shadow-2xl translate-x-full transition-transform duration-300 flex flex-col">
+  <div class="flex items-center justify-between px-5 h-16 border-b border-slate-200 shrink-0">
+    <h2 class="font-serif text-xl">Tu pedido</h2>
+    <button id="close-cart" type="button" class="text-2xl leading-none px-2 text-slate-500 hover:text-ink" aria-label="Cerrar carrito">×</button>
+  </div>
+
+  <!-- Vista: carrito -->
+  <div id="view-cart" class="flex-1 overflow-y-auto px-5 py-5">
+    <div id="cart-empty" class="text-sm text-slate-500 py-10 text-center">Tu carrito está vacío. Agrega una ventana o un kit para empezar.</div>
+    <ul id="cart-items" class="divide-y divide-slate-200"></ul>
+
+    <form id="order-form" class="mt-6 space-y-4 hidden" novalidate>
+      <div class="flex justify-between items-baseline border-t border-slate-200 pt-4">
+        <span class="text-sm font-semibold">Total estimado</span>
+        <span id="cart-total" class="font-serif text-2xl">US$ 0</span>
+      </div>
+      <p id="cart-notes" class="text-xs text-slate-500"></p>
+
+      <div>
+        <label for="f-name" class="block text-xs font-semibold uppercase tracking-wider mb-1.5">Nombre</label>
+        <input id="f-name" required autocomplete="name" class="w-full px-3 py-2.5 bg-mist border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-champagne outline-none">
+      </div>
+      <div>
+        <label for="f-phone" class="block text-xs font-semibold uppercase tracking-wider mb-1.5">Teléfono</label>
+        <input id="f-phone" required type="tel" autocomplete="tel" class="w-full px-3 py-2.5 bg-mist border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-champagne outline-none">
+      </div>
+      <div>
+        <label for="f-zone" class="block text-xs font-semibold uppercase tracking-wider mb-1.5">¿Dónde lo recibes?</label>
+        <select id="f-zone" class="w-full px-3 py-2.5 bg-mist border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-champagne outline-none">
+          <option value="caracas">Caracas</option>
+          <option value="otra">Otra ciudad de Venezuela</option>
+        </select>
+      </div>
+      <p id="zone-warn" class="hidden text-xs rounded-lg bg-amber-50 border border-amber-300 text-amber-900 p-3">Las ventanas solo se entregan en Caracas. Para otra ciudad puedes pedir únicamente kits de sustitución: quita las ventanas del carrito o cambia la zona.</p>
+      <div>
+        <label for="f-address" class="block text-xs font-semibold uppercase tracking-wider mb-1.5">Dirección o zona de entrega</label>
+        <textarea id="f-address" rows="2" required class="w-full px-3 py-2.5 bg-mist border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-champagne outline-none" placeholder="Ciudad, urbanización, referencia…"></textarea>
+      </div>
+      <label id="install-wrap" class="hidden items-start gap-2 text-sm cursor-pointer">
+        <input id="f-install" type="checkbox" class="mt-1 accent-[#d9b77e]">
+        <span>Quiero cotizar la instalación <span class="text-slate-500">(recargo a acordar según las condiciones)</span></span>
+      </label>
+      <div>
+        <label for="f-notes" class="block text-xs font-semibold uppercase tracking-wider mb-1.5">Notas <span class="text-slate-400 normal-case font-normal">(opcional)</span></label>
+        <textarea id="f-notes" rows="2" class="w-full px-3 py-2.5 bg-mist border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-champagne outline-none"></textarea>
+      </div>
+      <p class="text-xs text-slate-500">Pago por Pago Móvil, PayPal o Zelle. Te enviamos los datos por WhatsApp cuando confirmemos tu pedido.</p>
+      <p id="form-error" class="hidden text-xs text-red-700"></p>
+      <button id="submit-order" type="submit" class="w-full py-3.5 bg-ink text-white font-semibold rounded-lg hover:bg-graphite transition disabled:opacity-40 disabled:cursor-not-allowed">Enviar pedido por WhatsApp</button>
+    </form>
+  </div>
+
+  <!-- Vista: pedido listo -->
+  <div id="view-done" class="flex-1 overflow-y-auto px-5 py-6 hidden">
+    <h3 class="font-serif text-2xl mb-2">Tu pedido está listo</h3>
+    <p class="text-sm text-slate-600 mb-5">Ábrelo en WhatsApp y envíalo a los dueños. Ellos confirman precio final, disponibilidad y fecha.</p>
+    <a id="wa-link" href="#" target="_blank" rel="noopener" class="block text-center w-full py-3.5 bg-[#25D366] text-white font-semibold rounded-lg hover:brightness-95 transition mb-3">Abrir WhatsApp</a>
+    <p class="text-xs text-slate-500 mb-2">Si no se abre, copia el mensaje y pégalo en el chat:</p>
+    <textarea id="msg-preview" readonly rows="10" class="w-full px-3 py-2.5 bg-mist border border-slate-300 rounded-lg text-xs font-mono"></textarea>
+    <div class="flex gap-3 mt-3">
+      <button id="copy-msg" type="button" class="flex-1 py-2.5 border border-slate-300 rounded-lg text-sm font-semibold hover:bg-mist">Copiar mensaje</button>
+      <button id="back-cart" type="button" class="flex-1 py-2.5 border border-slate-300 rounded-lg text-sm font-semibold hover:bg-mist">Volver al carrito</button>
+    </div>
+  </div>
+</aside>
+
+<script>
+  const WHATSAPP_NUMBER = "584221789460";
+  const COLORS = { Blanco:'#f1f1ee', Negro:'#1c1c1e', Bronce:'#8b6b3d' };
+
+  /* ============ DATOS DE EJEMPLO ============
+     Para pasar a datos reales solo hay que editar este bloque:
+     sizes -> medidas disponibles, con su precio por grosor de vidrio (6 y 8 mm)
+              o un precio único ("kit") en el caso del kit de sustitución.      */
+  const PRODUCTS = [
+    { id:'panoramica', tipo:'ventana', nombre:'Ventana panorámica',
+      desc:'Vidrio fijo de gran formato con marco de aluminio.',
+      colors:['Blanco','Negro','Bronce'], glass:[6,8],
+      sizes:[ {label:'1.20 × 1.00 m', price:{6:95,8:112}}, {label:'1.50 × 1.00 m', price:{6:118,8:140}}, {label:'2.00 × 1.20 m', price:{6:176,8:208}} ] },
+    { id:'corrediza', tipo:'ventana', nombre:'Ventana corrediza',
+      desc:'Hojas que se deslizan sobre rieles, marco de aluminio.',
+      colors:['Blanco','Negro','Bronce'], glass:[6,8],
+      sizes:[ {label:'1.00 × 1.00 m', price:{6:85,8:100}}, {label:'1.50 × 1.00 m', price:{6:122,8:144}}, {label:'2.00 × 1.20 m', price:{6:182,8:214}} ] },
+    { id:'proyectante', tipo:'ventana', nombre:'Ventana proyectante',
+      desc:'Se abre hacia afuera para ventilar aun con lluvia.',
+      colors:['Blanco','Negro','Bronce'], glass:[6,8],
+      sizes:[ {label:'0.60 × 0.60 m', price:{6:60,8:72}}, {label:'1.00 × 0.60 m', price:{6:88,8:104}}, {label:'1.00 × 1.00 m', price:{6:120,8:142}} ] },
+    { id:'kit', tipo:'kit', nombre:'Kit de sustitución para ventana panorámica',
+      desc:'Aluminios, viniles, gomas y ruedas. Sin vidrio.',
+      colors:['Blanco','Negro','Bronce'], glass:null,
+      sizes:[ {label:'1.20 × 1.00 m', price:{kit:48}}, {label:'1.50 × 1.00 m', price:{kit:58}}, {label:'2.00 × 1.20 m', price:{kit:76}} ] }
+  ];
+
+  /* Ilustraciones de línea (provisionales, hasta tener fotos del producto) */
+  const ART = {
+    panoramica:'<rect x="14" y="14" width="132" height="92" rx="2"/><rect x="22" y="22" width="116" height="76"/><path d="M40 98 L78 22 M62 98 L100 22" opacity=".45"/>',
+    corrediza:'<rect x="14" y="14" width="132" height="92" rx="2"/><rect x="22" y="22" width="60" height="76"/><rect x="78" y="22" width="60" height="76"/><path d="M92 60h18M104 54l6 6-6 6"/>',
+    proyectante:'<rect x="14" y="14" width="132" height="92" rx="2"/><path d="M22 22h116M22 22l-4 76M138 22l4 76M18 98h124"/><path d="M22 22v76h116V22" opacity=".45"/><path d="M60 98l-8 10M100 98l8 10"/>',
+    kit:'<rect x="14" y="24" width="132" height="8" rx="1"/><rect x="14" y="88" width="132" height="8" rx="1"/><rect x="14" y="40" width="8" height="40" rx="1"/><rect x="138" y="40" width="8" height="40" rx="1"/><circle cx="62" cy="60" r="11"/><circle cx="62" cy="60" r="3"/><circle cx="98" cy="60" r="11"/><circle cx="98" cy="60" r="3"/>'
+  };
+
+  const CART_KEY = 'aluminios_marin_cart_v1';
+  const $ = id => document.getElementById(id);
+  const money = n => 'US$ ' + (Math.round(n * 100) / 100);
+  let cart = [];
+  try { cart = JSON.parse(localStorage.getItem(CART_KEY) || '[]'); } catch (e) { cart = []; }
+  const save = () => { try { localStorage.setItem(CART_KEY, JSON.stringify(cart)); } catch (e) {} };
+
+  /* ---------- Tarjetas de producto ---------- */
+  function cardHTML(p) {
+    const glassBlock = p.glass ? `
+      <fieldset class="mb-4"><legend class="text-xs font-semibold uppercase tracking-wider mb-2">Vidrio</legend>
+        <div class="flex gap-2">${p.glass.map((g, i) => `
+          <label class="cursor-pointer"><input type="radio" class="peer sr-only" name="glass-${p.id}" value="${g}" ${i === 0 ? 'checked' : ''}>
+            <span class="block px-4 py-2 rounded-lg border border-slate-300 text-sm font-semibold peer-checked:bg-ink peer-checked:text-white peer-checked:border-ink peer-focus-visible:ring-2 peer-focus-visible:ring-champagne">${g} mm</span></label>`).join('')}
+        </div></fieldset>` : '';
+    return `
+    <article class="rounded-2xl bg-white border border-slate-200 overflow-hidden flex flex-col" data-card="${p.id}">
+      <div class="bg-graphite text-champagne">
+        <svg viewBox="0 0 160 120" class="w-full h-44 block" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Ilustración de ${p.nombre.toLowerCase()}">${ART[p.id]}</svg>
+        <p class="text-[11px] text-white/40 text-center pb-2">Foto del producto pendiente</p>
+      </div>
+      <div class="p-5 flex-1 flex flex-col">
+        <h3 class="font-serif text-xl mb-1">${p.nombre}</h3>
+        <p class="text-sm text-slate-600 mb-5">${p.desc}</p>
+
+        <label for="size-${p.id}" class="text-xs font-semibold uppercase tracking-wider mb-2">Medida (ancho × alto)</label>
+        <select id="size-${p.id}" class="mb-4 w-full px-3 py-2.5 bg-mist border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-champagne outline-none">
+          ${p.sizes.map((s, i) => `<option value="${i}">${s.label}</option>`).join('')}
+        </select>
+
+        <fieldset class="mb-4"><legend class="text-xs font-semibold uppercase tracking-wider mb-2">Color del aluminio</legend>
+          <div class="flex gap-4">${p.colors.map((c, i) => `
+            <label class="cursor-pointer text-center"><input type="radio" class="peer sr-only" name="color-${p.id}" value="${c}" ${i === 0 ? 'checked' : ''}>
+              <span class="block w-9 h-9 rounded-full border border-slate-400 mx-auto peer-checked:ring-2 peer-checked:ring-offset-2 peer-checked:ring-ink peer-focus-visible:ring-2 peer-focus-visible:ring-champagne" style="background:${COLORS[c]}"></span>
+              <span class="text-[11px] text-slate-600 mt-1 block">${c}</span></label>`).join('')}
+          </div></fieldset>
+        ${glassBlock}
+
+        <div class="mt-auto pt-4 border-t border-slate-200 flex items-center justify-between gap-3">
+          <div class="flex items-center border border-slate-300 rounded-lg">
+            <button type="button" data-qty="-1" class="w-9 h-10 text-lg" aria-label="Menos">−</button>
+            <input id="qty-${p.id}" type="number" min="1" max="99" value="1" class="w-10 text-center text-sm bg-transparent outline-none [appearance:textfield]" aria-label="Cantidad">
+            <button type="button" data-qty="1" class="w-9 h-10 text-lg" aria-label="Más">+</button>
+          </div>
+          <div class="text-right"><div class="text-[11px] text-slate-500">Precio</div><div id="price-${p.id}" class="font-serif text-xl">—</div></div>
+        </div>
+        <button type="button" data-add="${p.id}" class="mt-4 w-full py-3 bg-ink text-white font-semibold rounded-lg hover:bg-graphite transition">Agregar al carrito</button>
+      </div>
+    </article>`;
+  }
+  $('grid-ventanas').innerHTML = PRODUCTS.filter(p => p.tipo === 'ventana').map(cardHTML).join('');
+  $('grid-kits').innerHTML = PRODUCTS.filter(p => p.tipo === 'kit').map(cardHTML).join('');
+
+  const product = id => PRODUCTS.find(p => p.id === id);
+  function selection(id) {
+    const p = product(id), card = document.querySelector(`[data-card="${id}"]`);
+    const size = p.sizes[+card.querySelector(`#size-${id}`).value];
+    const color = card.querySelector(`input[name="color-${id}"]:checked`).value;
+    const glass = p.glass ? +card.querySelector(`input[name="glass-${id}"]:checked`).value : null;
+    const qty = Math.max(1, Math.min(99, parseInt(card.querySelector(`#qty-${id}`).value, 10) || 1));
+    const unit = size.price[glass || 'kit'];
+    return { p, size, color, glass, qty, unit };
+  }
+  function refreshPrice(id) { const s = selection(id); $('price-' + id).textContent = money(s.unit * s.qty); }
+  PRODUCTS.forEach(p => refreshPrice(p.id));
+
+  document.addEventListener('change', e => { const c = e.target.closest('[data-card]'); if (c) refreshPrice(c.dataset.card); });
+  document.addEventListener('input', e => { const c = e.target.closest('[data-card]'); if (c) refreshPrice(c.dataset.card); });
+  document.addEventListener('click', e => {
+    const q = e.target.closest('[data-qty]');
+    if (q) {
+      const card = q.closest('[data-card]'), inp = card.querySelector('input[type=number]');
+      inp.value = Math.max(1, Math.min(99, (parseInt(inp.value, 10) || 1) + (+q.dataset.qty)));
+      refreshPrice(card.dataset.card); return;
+    }
+    const a = e.target.closest('[data-add]');
+    if (a) {
+      const s = selection(a.dataset.add);
+      const key = [s.p.id, s.size.label, s.color, s.glass].join('|');
+      const found = cart.find(i => i.key === key);
+      if (found) found.qty = Math.min(99, found.qty + s.qty);
+      else cart.push({ key, id: s.p.id, tipo: s.p.tipo, nombre: s.p.nombre, size: s.size.label, color: s.color, glass: s.glass, qty: s.qty, unit: s.unit });
+      save(); renderCart();
+      const old = a.textContent; a.textContent = 'Agregado ✓'; setTimeout(() => a.textContent = old, 1200);
+    }
+  });
+
+  /* ---------- Carrito ---------- */
+  const drawer = $('drawer'), overlay = $('overlay');
+  function openCart() { showView('cart'); drawer.classList.remove('translate-x-full'); drawer.setAttribute('aria-hidden', 'false'); overlay.classList.remove('hidden'); document.body.classList.add('no-scroll'); $('close-cart').focus(); }
+  function closeCart() { drawer.classList.add('translate-x-full'); drawer.setAttribute('aria-hidden', 'true'); overlay.classList.add('hidden'); document.body.classList.remove('no-scroll'); $('open-cart').focus(); }
+  function showView(v) { $('view-cart').classList.toggle('hidden', v !== 'cart'); $('view-done').classList.toggle('hidden', v !== 'done'); }
+  $('open-cart').addEventListener('click', openCart);
+  $('close-cart').addEventListener('click', closeCart);
+  overlay.addEventListener('click', closeCart);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && drawer.getAttribute('aria-hidden') === 'false') closeCart(); });
+  $('back-cart').addEventListener('click', () => showView('cart'));
+
+  const hasWindows = () => cart.some(i => i.tipo === 'ventana');
+  const hasKits = () => cart.some(i => i.tipo === 'kit');
+  const total = () => cart.reduce((t, i) => t + i.unit * i.qty, 0);
+  const describe = i => `${i.size} · ${i.color}` + (i.glass ? ` · vidrio ${i.glass} mm` : '');
+
+  function renderCart() {
+    const n = cart.reduce((t, i) => t + i.qty, 0);
+    $('cart-count').textContent = n;
+    $('cart-empty').classList.toggle('hidden', cart.length > 0);
+    $('order-form').classList.toggle('hidden', cart.length === 0);
+    $('cart-items').innerHTML = cart.map((i, idx) => `
+      <li class="py-4 flex gap-3">
+        <div class="flex-1 min-w-0">
+          <p class="font-semibold text-sm">${i.nombre}</p>
+          <p class="text-xs text-slate-500">${describe(i)}</p>
+          <div class="mt-2 flex items-center gap-3">
+            <div class="flex items-center border border-slate-300 rounded-md text-sm">
+              <button type="button" data-cart-qty="${idx}:-1" class="w-7 h-7" aria-label="Menos">−</button>
+              <span class="w-7 text-center">${i.qty}</span>
+              <button type="button" data-cart-qty="${idx}:1" class="w-7 h-7" aria-label="Más">+</button>
+            </div>
+            <button type="button" data-cart-del="${idx}" class="text-xs text-slate-500 underline">Quitar</button>
+          </div>
+        </div>
+        <div class="text-sm font-semibold whitespace-nowrap">${money(i.unit * i.qty)}</div>
+      </li>`).join('');
+    $('cart-total').textContent = money(total());
+    const notes = [];
+    if (hasWindows()) notes.push('Ventanas: entrega personal en Caracas, envío incluido. La instalación no está incluida.');
+    if (hasKits()) notes.push('Kits: envío por Domesa, el costo se confirma por WhatsApp.');
+    $('cart-notes').textContent = notes.join(' ') + ' El precio final lo confirman los dueños.';
+    $('install-wrap').classList.toggle('hidden', !hasWindows());
+    $('install-wrap').classList.toggle('flex', hasWindows());
+    checkZone();
+  }
+  function checkZone() {
+    const bad = hasWindows() && $('f-zone').value !== 'caracas';
+    $('zone-warn').classList.toggle('hidden', !bad);
+    $('submit-order').disabled = bad || cart.length === 0;
+  }
+  $('f-zone').addEventListener('change', checkZone);
+  $('cart-items').addEventListener('click', e => {
+    const q = e.target.closest('[data-cart-qty]'), d = e.target.closest('[data-cart-del]');
+    if (q) { const [idx, delta] = q.dataset.cartQty.split(':').map(Number); cart[idx].qty = Math.max(1, Math.min(99, cart[idx].qty + delta)); }
+    if (d) cart.splice(+d.dataset.cartDel, 1);
+    if (q || d) { save(); renderCart(); }
+  });
+
+  /* ---------- Enviar pedido ---------- */
+  function buildMessage() {
+    const v = id => $(id).value.trim();
+    const zonaCaracas = $('f-zone').value === 'caracas';
+    const lines = ['*PEDIDO (estándar)*', 'Hola Aluminios Marín, quiero hacer este pedido:', ''];
+    cart.forEach(i => lines.push(`• ${i.nombre} — ${describe(i)} — x${i.qty} — ${money(i.unit * i.qty)}`));
+    lines.push('', `*Total estimado:* ${money(total())}`, '');
+    if (hasWindows()) lines.push('*Ventanas:* entrega personal en Caracas (envío incluido)');
+    if (hasKits()) lines.push(`*Kits:* envío por Domesa a ${zonaCaracas ? 'Caracas' : v('f-address')}`);
+    if (hasWindows()) lines.push(`*Instalación:* ${$('f-install').checked ? 'quiero cotizarla' : 'no'}`);
+    lines.push('', `*Nombre:* ${v('f-name')}`, `*Teléfono:* ${v('f-phone')}`, `*Dirección / zona:* ${v('f-address')}`);
+    if (v('f-notes')) lines.push(`*Notas:* ${v('f-notes')}`);
+    lines.push('', 'Coordino el pago por Pago Móvil, PayPal o Zelle. ¡Gracias!');
+    return lines.join('\n');
+  }
+  $('order-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const err = $('form-error'); err.classList.add('hidden');
+    if (hasWindows() && $('f-zone').value !== 'caracas') { checkZone(); return; }
+    if (!$('f-name').value.trim() || !$('f-phone').value.trim() || !$('f-address').value.trim()) {
+      err.textContent = 'Completa nombre, teléfono y dirección para enviar el pedido.'; err.classList.remove('hidden'); return;
+    }
+    const msg = buildMessage();
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+    $('wa-link').href = url; $('msg-preview').value = msg;
+    showView('done');
+    try { window.open(url, '_blank'); } catch (x) {}
+  });
+  $('copy-msg').addEventListener('click', () => {
+    const ta = $('msg-preview'), btn = $('copy-msg');
+    const done = () => { btn.textContent = 'Copiado ✓'; setTimeout(() => btn.textContent = 'Copiar mensaje', 1500); };
+    const fallback = () => { ta.select(); try { document.execCommand('copy'); done(); } catch (x) {} };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(ta.value).then(done, fallback); else fallback();
+  });
+
+  $('year').textContent = new Date().getFullYear();
+  renderCart();
+</script>
+</body>
+</html>
