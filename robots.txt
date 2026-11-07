@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rubenm1906.github.io/aluminios-marin/sitemap.xml
+Sitemap: https://aluminiosmarin.github.io/sitemap.xml
